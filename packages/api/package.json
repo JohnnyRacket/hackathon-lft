@@ -1,0 +1,20 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "John Harrison <john.randolph.harrison@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/api.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "tsc": "npx tsc",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}
