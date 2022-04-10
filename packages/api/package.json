@@ -15,13 +15,16 @@
   ],
   "scripts": {
     "build": "npx tsc",
+    "generate": "npx prisma generate",
     "serve": "npx tsc && node dist/server.js",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "@prisma/client": "^3.12.0",
     "apollo-server-core": "^3.6.7",
     "apollo-server-express": "^3.6.7",
     "express": "^4.17.3",
-    "graphql": "^16.3.0"
+    "graphql": "^16.3.0",
+    "prisma": "^3.12.0"
   }
 }

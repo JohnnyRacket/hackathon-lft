@@ -1,4 +1,4 @@
-export const booksModel = [
+export const booksModel =[
     {
       title: 'The Awakening',
       author: 'Kate Chopin',

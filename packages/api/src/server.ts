@@ -6,6 +6,7 @@ import { DocumentNode } from 'graphql';
 import { GraphQLResolverMap } from '@apollographql/apollo-tools';
 import { booksTypeDefs } from './graphql/books/typeDefs';
 import { bookResolvers } from './graphql/books/resolvers';
+import { context } from './context';
 
 async function startApolloServer(typeDefs: DocumentNode | Array<DocumentNode>, resolvers: GraphQLResolverMap<any>) {
   const app = express();
@@ -15,6 +16,7 @@ async function startApolloServer(typeDefs: DocumentNode | Array<DocumentNode>, r
     typeDefs,
     resolvers,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    context: context
   });
   await server.start();
   server.applyMiddleware({ app });
