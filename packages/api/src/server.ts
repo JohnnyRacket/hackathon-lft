@@ -2,11 +2,14 @@ import { ApolloServer } from 'apollo-server-express';
 import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
 import express from 'express';
 import http from 'http';
+import { mergeResolvers } from '@graphql-tools/merge';
 import { DocumentNode } from 'graphql';
 import { GraphQLResolverMap } from '@apollographql/apollo-tools';
 import { booksTypeDefs } from './graphql/books/typeDefs';
 import { bookResolvers } from './graphql/books/resolvers';
 import { context } from './context';
+import { userTypeDefs } from './graphql/users/typeDefs';
+import { userResolvers } from './graphql/users/resolvers';
 
 async function startApolloServer(typeDefs: DocumentNode | Array<DocumentNode>, resolvers: GraphQLResolverMap<any>) {
   const app = express();
@@ -24,4 +27,4 @@ async function startApolloServer(typeDefs: DocumentNode | Array<DocumentNode>, r
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
 }
 
-startApolloServer(booksTypeDefs, bookResolvers);
+startApolloServer([booksTypeDefs, userTypeDefs], mergeResolvers([bookResolvers, userResolvers]) as GraphQLResolverMap<any>);

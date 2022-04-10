@@ -10,7 +10,7 @@ export const userResolvers = {
         })
     },
     Mutation: {
-        addUser: async (_parent, { name, email, role }, context: Context): Promise<User> => {
+        addUser: async (_parent, { userInput: { name, email, role } }, context: Context): Promise<User> => {
             const res = await context.prisma.user.create({
                 data: {
                     name,
@@ -20,7 +20,7 @@ export const userResolvers = {
             })
             return res;
         },
-        editUser: async (_parent, { id, name, email, role }, context: Context): Promise<User> => {
+        editUser: async (_parent, { id, userInput: { name, email, role } }, context: Context): Promise<User> => {
             const res = await context.prisma.user.update({
                 where: { id },
                 data: {

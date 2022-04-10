@@ -20,6 +20,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "@graphql-tools/merge": "^8.2.7",
     "@prisma/client": "^3.12.0",
     "apollo-server-core": "^3.6.7",
     "apollo-server-express": "^3.6.7",

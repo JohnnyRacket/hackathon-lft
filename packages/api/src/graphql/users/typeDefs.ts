@@ -12,16 +12,16 @@ export const userTypeDefs = gql`
     updatedAt: String
   }
 
-  type UserInput {
+  input UserInput {
     name: String
     email: String
     role: JobRole
   }
 
   enum JobRole {
-    IOS DEVELOPER
-    ANDROID DEVELOPER
-    WEB DEVELOPER
+    IOS
+    ANDROID
+    WEB
     DESIGNER
     OTHER
   }
@@ -34,6 +34,6 @@ export const userTypeDefs = gql`
   type Mutation {
     addUser(userInput: UserInput): User
     editUser(id: String, userInput: UserInput): User
-    deleteUser(id: String): Boolean
+    removeUser(id: String): Boolean
   }
 `;
