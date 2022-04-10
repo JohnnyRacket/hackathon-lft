@@ -14,7 +14,14 @@
     "lib"
   ],
   "scripts": {
-    "tsc": "npx tsc",
+    "build": "npx tsc",
+    "serve": "npx tsc && node dist/server.js",
     "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "apollo-server-core": "^3.6.7",
+    "apollo-server-express": "^3.6.7",
+    "express": "^4.17.3",
+    "graphql": "^16.3.0"
   }
 }

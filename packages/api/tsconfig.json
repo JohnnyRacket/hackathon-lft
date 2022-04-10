@@ -1,8 +1,24 @@
 {
-    "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "./lib"
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "noImplicitAny": false,
+      "moduleResolution": "node",
+      "declaration": true,
+      "removeComments": true,
+      "noLib": false,
+      "target": "ESNext",
+      "sourceMap": true,
+      "lib": [
+        "ESNext"
+      ],
+      "outDir": "./dist"
     },
+    "exclude": [
+      "node_modules",
+      "**/*.spec.ts"
+    ],
     "include": [
         "./src"
     ]
