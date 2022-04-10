@@ -18,3 +18,12 @@ model Book {
   title     String   // @db.VarChar(255)
   author    String   // @db.VarChar(255)
 }
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updateddAt DateTime @default(now())
+  name     String   // @db.VarChar(255)
+  email    String   
+  role     String
+}
