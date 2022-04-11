@@ -1,17 +1,17 @@
-import { Container, Grid } from "@mantine/core";
+import { Container, Grid, Text, Title } from "@mantine/core";
+import { Bolt, LineDashed, UserPlus, WritingSign } from "tabler-icons-react";
+import SkeletonCard from "../components/SkeletonCard";
+import ThreeIconSection from "../components/ThreeIconSection";
 import UserCard from "../components/UserCard";
 
 const Home = () => {
 
     return (
         <>
-            <Grid>
-                <Grid.Col md={3} >Sign Up</Grid.Col>
-                <Grid.Col md={3} >Discover</Grid.Col>
-                <Grid.Col md={3} >Connect</Grid.Col>
-            </Grid>
+            <ThreeIconSection />
             <Container size="sm">
                 <UserCard></UserCard>
+                <SkeletonCard></SkeletonCard>
             </Container>
         </>
     );

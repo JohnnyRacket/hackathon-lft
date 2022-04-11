@@ -7,13 +7,13 @@ const UserCard = () => {
         : theme.colors.gray[7];
 
     return (
-        <Card shadow="md" p="2rem">
+        <Card shadow="md" p="2rem" m="lg">
             <Card.Section>
                 <Grid>
                     <Grid.Col md={3} >
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "center", flexWrap: "wrap" }}>
-                            <Avatar color="cyan" radius="lg" size="lg" m="sm">CB</Avatar>
-                            <Title order={4} m="sm">John Harrison</Title>
+                            <Avatar color="cyan" radius="lg" size="lg" m="sm" style={{ marginLeft: 0 }}>CB</Avatar>
+                            <Title order={4} m="sm" style={{ marginLeft: 0 }}>John Harrison</Title>
                         </div>
                     </Grid.Col>
                     <Grid.Col md={2} >
@@ -38,9 +38,7 @@ const UserCard = () => {
 
             </Card.Section>
 
-            <Group position="apart" style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
-                <Text weight={500}>About me</Text>
-            </Group>
+            <Text weight={500} m="sm" style={{ marginLeft: 0 }}>About me</Text>
 
             <Spoiler maxHeight={50} showLabel="Show more" hideLabel="Hide" style={{ color: secondaryColor, lineHeight: 1.5 }}>
                 With Fjord Tours you can explore more of the magical fjord landscapes with tours and
