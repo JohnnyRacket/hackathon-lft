@@ -1,10 +1,13 @@
 
-import { Grid, Title } from "@mantine/core";
+import { Grid, Title, useMantineTheme } from "@mantine/core";
 import { Bolt, LineDashed, UserPlus, WritingSign } from "tabler-icons-react";
 
 const ThreeIconSection = () => {
+
+    const theme = useMantineTheme();
+
     return (
-        <Grid grow m="xl" p="lg">
+        <Grid grow m="xl" p="lg" style={{ color: theme.colors.gray[3] }}>
             <Grid.Col md={3} style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
                 <WritingSign size={70} />
                 <Title order={2} p="md">Sign Up</Title>

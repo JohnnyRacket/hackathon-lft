@@ -1,4 +1,5 @@
 import { Button, Card, Text, Badge, Group, Image, useMantineTheme, Avatar, Grid, Title, Spoiler } from "@mantine/core";
+import { User } from "tabler-icons-react";
 const UserCard = () => {
     const theme = useMantineTheme();
 
@@ -51,8 +52,8 @@ const UserCard = () => {
                 activities on and around the fjords of Norway
             </Spoiler>
 
-            <Button variant="light" color="violet" fullWidth style={{ marginTop: 20 }}>
-                Add this user to your team
+            <Button variant="outline" color="violet" fullWidth style={{ marginTop: 20 }}>
+                <User style={{ padding: "3px" }} /> <Text >Check out this user</Text>
             </Button>
         </Card>
     );
