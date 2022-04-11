@@ -1,7 +1,10 @@
-import { AppShell, Navbar, Header, useMantineTheme, Text, Footer, Container, Avatar, Button, Group, Menu, Divider } from '@mantine/core';
-import { Route, Routes } from 'react-router-dom';
+import { AppShell, Navbar, Header, useMantineTheme, Text, Footer, Container, Avatar, Button, Group, Menu, Divider, Title } from '@mantine/core';
+import { Link, Route, Routes } from 'react-router-dom';
 import { ArrowsLeftRight, MessageCircle, Photo, Search, Settings, Trash } from 'tabler-icons-react';
 import Home from '../pages/home';
+import Login from '../pages/Login';
+import NotFound from '../pages/NotFound';
+import Profile from '../pages/Profile';
 
 const Layout = () => {
     const theme = useMantineTheme();
@@ -16,12 +19,12 @@ const Layout = () => {
         header={
             <Header height={70} p="md" >
                 <Container size="lg" style={{ display: 'flex', alignItems: 'center', height: '100%', justifyContent: 'space-between' }}>
-                    <Text>Hackathon LFT</Text>
+                    <Link to="/" style={{ textDecoration: 'none' }}><Title style={{ color: 'white' }}>Hackathon LFT</Title></Link>
                     <Group>
-                        <Button>Login</Button>
+                        <Link to="/login" ><Button color="violet">Create Account</Button></Link>
                         <Menu control={<Avatar color="cyan" radius="xl">CB</Avatar>}>
                             <Menu.Label>Application</Menu.Label>
-                            <Menu.Item icon={<Settings size={14} />}>Profile</Menu.Item>
+                            <Link to="/profile" ><Menu.Item icon={<Settings size={14} />}>Profile</Menu.Item></Link>
                             <Menu.Item icon={<MessageCircle size={14} />}>Messages</Menu.Item>
                             <Divider />
                             <Menu.Label>Danger zone</Menu.Label>
@@ -39,9 +42,13 @@ const Layout = () => {
             </Footer >
         }
     >
-        <Container size="lg">
+        <Container size="lg" style={{ height: "100%" }}>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/profile/:id" element={<Profile />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </Container>
     </AppShell >
