@@ -7,14 +7,18 @@ export const invitationTypeDefs = gql`
     sendingUser: User
     senderId: String
     receivingUser: User
-    recieverId: String
+    receiverId: String
     status: String
+    message: String
+    team: String
   }
 
   input InvitationInput {
     senderId: String
-    recieverId: String
+    receiverId: String
     status: String
+    message: String
+    team: String
   }
 
   type Query {

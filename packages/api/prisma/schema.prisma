@@ -51,6 +51,8 @@ model Invitation {
   sendingUser   User   @relation("inviteSender", fields: [senderId], references: [id])
   receivingUser User   @relation("inviteReceiver", fields: [receiverId], references: [id])
   status        String
+  message       String
+  team          String
   senderId      String
   receiverId    String
 }

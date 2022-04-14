@@ -72,12 +72,14 @@ export const userResolvers = {
             });
             return res;
         },
-        inviteUser: async (_parent, { invitationInput: { senderId, receiverId, status } }, context: Context): Promise<Invitation> => {
+        inviteUser: async (_parent, { invitationInput: { senderId, receiverId, status, message, team } }, context: Context): Promise<Invitation> => {
             const res = await context.prisma.invitation.create({
                 data: {
                     senderId,
                     receiverId,
-                    status
+                    status,
+                    message,
+                    team
                 },
             });
             return res;
