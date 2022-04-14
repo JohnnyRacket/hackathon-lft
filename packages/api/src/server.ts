@@ -12,6 +12,8 @@ import { skillResolvers } from "./graphql/skills/resolvers";
 import { roleTypeDefs } from "./graphql/roles/typeDefs";
 import { skillTypeDefs } from "./graphql/skills/typeDefs";
 import { roleResolvers } from "./graphql/roles/resolvers";
+import { invitationResolvers } from "./graphql/invitations/resolvers";
+import { invitationTypeDefs } from "./graphql/invitations/typeDefs";
 
 async function startApolloServer(typeDefs: DocumentNode | Array<DocumentNode>, resolvers: GraphQLResolverMap<any>) {
   const app = express();
@@ -30,6 +32,6 @@ async function startApolloServer(typeDefs: DocumentNode | Array<DocumentNode>, r
 }
 
 startApolloServer(
-  [roleTypeDefs, skillTypeDefs, userTypeDefs],
-  mergeResolvers([roleResolvers, skillResolvers, userResolvers]) as GraphQLResolverMap<any>
+  [roleTypeDefs, skillTypeDefs, invitationTypeDefs, userTypeDefs],
+  mergeResolvers([roleResolvers, skillResolvers, invitationResolvers, userResolvers]) as GraphQLResolverMap<any>
 );

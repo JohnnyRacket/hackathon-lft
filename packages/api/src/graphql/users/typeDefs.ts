@@ -19,9 +19,9 @@ export const userTypeDefs = gql`
   input UserInput {
     name: String
     email: String
-    role: Role
+    role: String
     team: String
-    skills: [Skill]
+    skills: [String]
   }
 
   type Query {

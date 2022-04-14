@@ -14,7 +14,7 @@ export const roleResolvers = {
       });
       return res;
     },
-    deleteRole: async (_parent, { name }, context: Context): Promise<Boolean> => {
+    removeRole: async (_parent, { name }, context: Context): Promise<Role> => {
       const res = await context.prisma.role.delete({
         where: { name },
       });

@@ -37,10 +37,10 @@ model Role {
 }
 
 model Invitation {
-  id              Int    @id @default(autoincrement())
-  originatingUser User   @relation("inviteSender", fields: [userId1], references: [id])
-  receivingUser   User   @relation("inviteReceiver", fields: [userId2], references: [id])
-  status          String
-  userId1         Int
-  userId2         Int
+  id            Int    @id @default(autoincrement())
+  sendingUser   User   @relation("inviteSender", fields: [senderId], references: [id])
+  receivingUser User   @relation("inviteReceiver", fields: [receiverId], references: [id])
+  status        String
+  senderId      Int
+  receiverId    Int
 }

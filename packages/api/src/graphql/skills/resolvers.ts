@@ -14,7 +14,7 @@ export const skillResolvers = {
       });
       return res;
     },
-    deleteSkill: async (_parent, { name }, context: Context): Promise<Boolean> => {
+    removeSkill: async (_parent, { name }, context: Context): Promise<Skill> => {
       const res = await context.prisma.skill.delete({
         where: { name },
       });
