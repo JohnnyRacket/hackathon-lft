@@ -1,4 +1,4 @@
-import { User, Invitation } from "@prisma/client";
+import { User, Invitation, Role, Skill } from "@prisma/client";
 import { context, Context } from "../../context";
 
 
@@ -10,22 +10,48 @@ export const userResolvers = {
                 where: { id },
             }),
     },
+    User: {
+        role: async ({ id }, _input, context: Context): Promise<Role> => await context.prisma.role.findFirst(
+            {
+                where: {
+                    users: {
+                        some: { id }
+                    }
+                }
+            }
+        ),
+        skills: async ({ id }, _input, context: Context): Promise<Skill[]> => await context.prisma.skill.findMany(
+            {
+                where: {
+                    users: {
+                        some: {
+                            userId: id
+                        }
+                    }
+                }
+            }
+        )
+    },
     Mutation: {
         addUser: async (_parent, { userInput: { name, email, role, team, skills } }, context: Context): Promise<User> => {
             const res = await context.prisma.user.create({
                 data: {
                     name,
                     email,
-                    role,
+                    role: {
+                        connect: { name: role }
+                    },
                     team,
-                    skills,
+                    skills: {
+                        create: skills.map((skill) => ({ skill: {connect: {name: skill} }}))
+                    },
                 },
             });
             return res;
         },
         editUser: async (
             _parent,
-            { id, UserInput: { name, email, role, team, skills } },
+            { id, userInput: { name, email, role, team, skills } },
             context: Context
         ): Promise<User> => {
             const res = await context.prisma.user.update({
@@ -46,7 +72,7 @@ export const userResolvers = {
             });
             return res;
         },
-        inviteUser: async (_parent, { InvitationInput: { senderId, receiverId, status } }, context: Context): Promise<Invitation> => {
+        inviteUser: async (_parent, { invitationInput: { senderId, receiverId, status } }, context: Context): Promise<Invitation> => {
             const res = await context.prisma.invitation.create({
                 data: {
                     senderId,

@@ -33,6 +33,6 @@ export const userTypeDefs = gql`
     addUser(userInput: UserInput): User
     editUser(id: String, userInput: UserInput): User
     removeUser(id: String): Boolean
-    inviteUser(senderId: String, receiverId: String): Invitation
+    inviteUser(invitationInput: InvitationInput): Invitation
   }
 `;
