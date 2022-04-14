@@ -9,8 +9,7 @@ const Home = () => {
 
     return (
         <>
-            <ThreeIconSection />
-            <Container size="sm">
+            <Container size="sm" pt="6rem">
                 <Searchbar />
                 <UserCard></UserCard>
                 <SkeletonCard></SkeletonCard>

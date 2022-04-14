@@ -33,8 +33,7 @@ const Layout = () => {
                             <Link to="/profile" ><Menu.Item icon={<Settings size={14} />}>Profile</Menu.Item></Link>
                             <Menu.Item icon={<MessageCircle size={14} />}>Messages</Menu.Item>
                             <Divider />
-                            <Menu.Label>Danger zone</Menu.Label>
-                            <Menu.Item color="red" icon={<Trash size={14} />}>Delete my account</Menu.Item>
+                            <Menu.Item color="red" icon={<Trash size={14} />}>Sign out</Menu.Item>
                         </Menu>
                     </Group>
                 </Container>

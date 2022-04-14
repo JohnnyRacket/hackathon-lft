@@ -1,6 +1,6 @@
 
 
-import { Button, Grid, Group, MultiSelect, Paper, TextInput, Title, TitleOrder, useMantineTheme } from "@mantine/core";
+import { Button, Divider, Grid, Group, MultiSelect, Paper, TextInput, Title, TitleOrder, useMantineTheme } from "@mantine/core";
 import { ReactChild } from "react";
 import { Search } from "tabler-icons-react";
 

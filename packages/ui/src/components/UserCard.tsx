@@ -28,11 +28,11 @@ const UserCard = () => {
 
 
                         <div style={{ display: "flex", flexDirection: "row", alignContent: "center", flexWrap: "wrap", height: "100%", gap: ".25rem" }}>
-                            <Badge size="sm" m="sxs" color="green">Node.js</Badge>
-                            <Badge size="sm" m="sxs" color="lime">Python</Badge>
-                            <Badge size="sm" m="sxs" color="cyan">React</Badge>
-                            <Badge size="sm" m="xss" color="teal">Typescript</Badge>
-                            <Badge size="sm" m="sxs" color="pink">Art</Badge>
+                            <Badge size="sm" color="green">Node.js</Badge>
+                            <Badge size="sm" color="lime">Python</Badge>
+                            <Badge size="sm" color="cyan">React</Badge>
+                            <Badge size="sm" color="teal">Typescript</Badge>
+                            <Badge size="sm" color="pink">Art</Badge>
                         </div>
                     </Grid.Col>
                 </Grid>
