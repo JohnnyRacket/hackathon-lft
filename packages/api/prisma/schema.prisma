@@ -12,18 +12,35 @@ datasource db {
   url      = "file:./dev.db"
 }
 
-model Book {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  title     String   // @db.VarChar(255)
-  author    String   // @db.VarChar(255)
+model User {
+  id                  Int          @id @default(autoincrement())
+  createdAt           DateTime     @default(now())
+  updateddAt          DateTime     @default(now())
+  name                String
+  email               String
+  role                Role         @relation(fields: [roleName], references: [name])
+  team                String
+  skills              Skill[]
+  roleName            String
+  sentInvitations     Invitation[] @relation("inviteSender")
+  receivedInvitations Invitation[] @relation("inviteReceiver")
 }
 
-model User {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updateddAt DateTime @default(now())
-  name     String   // @db.VarChar(255)
-  email    String   
-  role     String
+model Skill {
+  name  String @id
+  users User[]
+}
+
+model Role {
+  name String @id
+  user User[]
+}
+
+model Invitation {
+  id              Int    @id @default(autoincrement())
+  originatingUser User   @relation("inviteSender", fields: [userId1], references: [id])
+  receivingUser   User   @relation("inviteReceiver", fields: [userId2], references: [id])
+  status          String
+  userId1         Int
+  userId2         Int
 }

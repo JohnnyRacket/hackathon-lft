@@ -1,0 +1,24 @@
+import { Role } from "@prisma/client";
+import { context, Context } from "../../context";
+
+export const roleResolvers = {
+  Query: {
+    roles: async (): Promise<Role[]> => await context.prisma.role.findMany(),
+  },
+  Mutation: {
+    addRole: async (_parent, { name }, context: Context): Promise<Role> => {
+      const res = await context.prisma.role.create({
+        data: {
+          name,
+        },
+      });
+      return res;
+    },
+    deleteRole: async (_parent, { name }, context: Context): Promise<Boolean> => {
+      const res = await context.prisma.role.delete({
+        where: { name },
+      });
+      return res;
+    },
+  },
+};
