@@ -1,19 +1,19 @@
-import { ApolloServer } from "apollo-server-express";
-import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
-import express from "express";
-import http from "http";
-import { mergeResolvers } from "@graphql-tools/merge";
-import { DocumentNode } from "graphql";
-import { GraphQLResolverMap } from "@apollographql/apollo-tools";
-import { context } from "./context";
-import { userTypeDefs } from "./graphql/users/typeDefs";
-import { userResolvers } from "./graphql/users/resolvers";
-import { skillResolvers } from "./graphql/skills/resolvers";
-import { roleTypeDefs } from "./graphql/roles/typeDefs";
-import { skillTypeDefs } from "./graphql/skills/typeDefs";
-import { roleResolvers } from "./graphql/roles/resolvers";
-import { invitationResolvers } from "./graphql/invitations/resolvers";
-import { invitationTypeDefs } from "./graphql/invitations/typeDefs";
+import { ApolloServer } from 'apollo-server-express';
+import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
+import express from 'express';
+import http from 'http';
+import { mergeResolvers } from '@graphql-tools/merge';
+import { DocumentNode } from 'graphql';
+import { GraphQLResolverMap } from '@apollographql/apollo-tools';
+import { context } from './context';
+import { userTypeDefs } from './graphql/users/typeDefs';
+import { userResolvers } from './graphql/users/resolvers';
+import { skillResolvers } from './graphql/skills/resolvers';
+import { roleTypeDefs } from './graphql/roles/typeDefs';
+import { skillTypeDefs } from './graphql/skills/typeDefs';
+import { roleResolvers } from './graphql/roles/resolvers';
+import { invitationResolvers } from './graphql/invitations/resolvers';
+import { invitationTypeDefs } from './graphql/invitations/typeDefs';
 
 async function startApolloServer(typeDefs: DocumentNode | Array<DocumentNode>, resolvers: GraphQLResolverMap<any>) {
   const app = express();
@@ -23,7 +23,7 @@ async function startApolloServer(typeDefs: DocumentNode | Array<DocumentNode>, r
     typeDefs,
     resolvers,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
-    context: context,
+    context,
   });
   await server.start();
   server.applyMiddleware({ app });
@@ -33,5 +33,5 @@ async function startApolloServer(typeDefs: DocumentNode | Array<DocumentNode>, r
 
 startApolloServer(
   [roleTypeDefs, skillTypeDefs, invitationTypeDefs, userTypeDefs],
-  mergeResolvers([roleResolvers, skillResolvers, invitationResolvers, userResolvers]) as GraphQLResolverMap<any>
+  mergeResolvers([roleResolvers, skillResolvers, invitationResolvers, userResolvers]) as GraphQLResolverMap<any>,
 );

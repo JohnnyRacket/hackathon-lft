@@ -1,12 +1,12 @@
-import { Skill } from "@prisma/client";
-import { context, Context } from "../../context";
+import { Skill } from '@prisma/client';
+import { context, Context } from '../../context';
 
 export const skillResolvers = {
   Query: {
     skills: async (): Promise<Skill[]> => await context.prisma.skill.findMany(),
   },
   Mutation: {
-    addSkill: async (_parent, { name }, context: Context): Promise<Skill> => {
+    addSkill: async (_parent, { name } : {name: string}, context: Context): Promise<Skill> => {
       const res = await context.prisma.skill.create({
         data: {
           name,
@@ -14,7 +14,7 @@ export const skillResolvers = {
       });
       return res;
     },
-    removeSkill: async (_parent, { name }, context: Context): Promise<Skill> => {
+    removeSkill: async (_parent, { name } : {name: string}, context: Context): Promise<Skill> => {
       const res = await context.prisma.skill.delete({
         where: { name },
       });

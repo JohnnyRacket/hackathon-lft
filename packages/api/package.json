@@ -17,7 +17,8 @@
     "build": "npx tsc",
     "generate": "npx prisma generate",
     "serve": "npx tsc && node dist/server.js",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "lint": "npx eslint . --fix"
   },
   "dependencies": {
     "@graphql-tools/merge": "^8.2.7",
@@ -27,5 +28,10 @@
     "express": "^4.17.3",
     "graphql": "^16.3.0",
     "prisma": "^3.12.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb": "^19.0.4"
   }
 }
