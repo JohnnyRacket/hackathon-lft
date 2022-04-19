@@ -5,7 +5,8 @@ export const userTypeDefs = gql`
 
   type User {
     id: String
-    name: String
+    firstName: String
+    lastName: String
     email: String
     role: Role
     skills: [Skill]
@@ -17,7 +18,8 @@ export const userTypeDefs = gql`
   }
 
   input UserInput {
-    name: String
+    firstName: String
+    lastName: String
     email: String
     role: String
     team: String
