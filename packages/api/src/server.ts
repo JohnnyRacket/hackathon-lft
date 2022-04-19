@@ -8,12 +8,12 @@ import knexConfig from '../knexfile';
 import { mergeResolvers } from '@graphql-tools/merge';
 import { DocumentNode } from 'graphql';
 import { GraphQLResolverMap } from '@apollographql/apollo-tools';
-import { userTypeDefs } from './graphql/users/typeDefs';
-import { userResolvers } from './graphql/users/resolvers';
-import { skillResolvers } from './graphql/skills/resolvers';
-import { roleTypeDefs } from './graphql/roles/typeDefs';
-import { skillTypeDefs } from './graphql/skills/typeDefs';
-import { roleResolvers } from './graphql/roles/resolvers';
+import { userTypeDefs } from './objects/users/user.schema';
+import { userResolvers } from './objects/users/user.resolvers';
+import { skillResolvers } from './objects/skills/skill.resolvers';
+import { roleTypeDefs } from './objects/roles/role.schema';
+import { skillTypeDefs } from './objects/skills/skill.schema';
+import { roleResolvers } from './objects/roles/role.resolvers';
 // import { invitationResolvers } from './graphql/invitations/resolvers';
 // import { invitationTypeDefs } from './graphql/invitations/typeDefs';
 

@@ -1,5 +1,5 @@
 import { Model, Modifiers } from 'objection'
-import User from './User.model'
+import User from '../users/user.model'
 
 export default class Role extends Model {
     name!: string;

@@ -1,4 +1,4 @@
-import Role from '../../models/Role.model';
+import Role from './role.model';
 
 export const roleResolvers = {
   Query: {

@@ -1,4 +1,4 @@
-import Skill from "../../models/Skill.model";
+import Skill from "./skill.model";
 
 export const skillResolvers = {
   Query: {

@@ -1,6 +1,6 @@
 import { Model, Modifiers } from 'objection'
-import Role from './Role.model'
-import Skill from './Skill.model'
+import Role from '../roles/role.model'
+import Skill from '../skills/skill.model'
 
 export default class User extends Model {
     id!: string

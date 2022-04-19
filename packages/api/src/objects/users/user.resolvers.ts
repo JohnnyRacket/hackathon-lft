@@ -1,10 +1,10 @@
 
 import {randomUUID} from 'crypto';
-import Role from '../../models/Role.model';
-import Skill from '../../models/Skill.model';
-import User from '../../models/User.model';
-import { InvitationInput } from '../invitations/types';
-import { UserInput } from './types';
+import Role from '../roles/role.model';
+import Skill from '../skills/skill.model';
+import User from './user.model';
+import { InvitationInput } from '../invitations/invitation.types';
+import { UserInput } from './user.types';
 
 export const userResolvers = {
   Query: {
