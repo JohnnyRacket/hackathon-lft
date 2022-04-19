@@ -87,7 +87,7 @@ export default class User extends Model {
                     from: 'userSkills.userId',
                     to: 'userSkills.skillName',
                 },
-                to: 'skills.id',
+                to: 'skills.name',
             },
         },
     })

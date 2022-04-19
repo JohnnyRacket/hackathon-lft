@@ -7,7 +7,7 @@ export async function up(knex: Knex): Promise<void> {
             table.string('name').primary();
         })
         .createTable('users', function (table) {
-            table.uuid('id').primary().defaultTo(knex.raw('(UUID())'));
+            table.uuid('id').primary().notNullable();
             table.string('firstName', 255).notNullable();
             table.string('lastName', 255).notNullable();
             table.string('team', 255).nullable();
@@ -19,7 +19,7 @@ export async function up(knex: Knex): Promise<void> {
             table.string('name').primary();
         })
         .createTable('userSkills', function (table) {
-            table.uuid('id').primary().defaultTo(knex.raw('(UUID())'));
+            table.primary(['userId','skillName'])
             table.string('skillName').references('skills.name');
             table.uuid('userId').references('users.id');
         })

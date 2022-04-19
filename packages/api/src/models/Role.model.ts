@@ -2,8 +2,10 @@ import { Model, Modifiers } from 'objection'
 import User from './User.model'
 
 export default class Role extends Model {
-    name!: string
-    users?: User[]
+    name!: string;
+    users?: User[];
+
+    static tableName = 'roles'
 
     static relationMappings = () => ({
         users: {

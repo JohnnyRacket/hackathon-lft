@@ -1,4 +1,5 @@
 
+import {randomUUID} from 'crypto';
 import Role from '../../models/Role.model';
 import Skill from '../../models/Skill.model';
 import User from '../../models/User.model';
@@ -21,6 +22,7 @@ export const userResolvers = {
       },
     }: { userInput: UserInput }, _context): Promise<User> => {
       const res = await User.query().insertGraph({
+        id: randomUUID(),
         firstName,
         lastName,
         email,
@@ -29,6 +31,8 @@ export const userResolvers = {
           name: role
         },
         skills: skills.map((skill) => ({ name: skill })),
+      }, {
+        relate: ['role', 'skills']
       });
   return res;
 },

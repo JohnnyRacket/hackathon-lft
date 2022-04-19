@@ -14,14 +14,13 @@ import { skillResolvers } from './graphql/skills/resolvers';
 import { roleTypeDefs } from './graphql/roles/typeDefs';
 import { skillTypeDefs } from './graphql/skills/typeDefs';
 import { roleResolvers } from './graphql/roles/resolvers';
-import { invitationResolvers } from './graphql/invitations/resolvers';
-import { invitationTypeDefs } from './graphql/invitations/typeDefs';
+// import { invitationResolvers } from './graphql/invitations/resolvers';
+// import { invitationTypeDefs } from './graphql/invitations/typeDefs';
 
 async function startApolloServer(typeDefs: DocumentNode | Array<DocumentNode>, resolvers: GraphQLResolverMap<any>) {
   const app = express();
-  const knex = Knex(knexConfig.development)
-
-  Model.knex(knex)
+  const knex = Knex(knexConfig.development);
+  Model.knex(knex);
 
   const httpServer = http.createServer(app);
   const server = new ApolloServer({
