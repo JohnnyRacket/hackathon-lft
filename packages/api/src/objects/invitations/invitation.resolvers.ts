@@ -23,7 +23,7 @@ export const invitationResolvers = {
       });
       return res;
     },
-    removeInvitation: async (_parent, { id }, _context): Promise<number> =>
+    deleteInvitation: async (_parent, { id }, _context): Promise<number> =>
       await Invitation.query().delete().where("id", id),
   },
 };

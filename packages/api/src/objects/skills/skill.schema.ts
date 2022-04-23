@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server-express';
+import { gql } from "apollo-server-express";
 
 export const skillTypeDefs = gql`
   type Skill {
@@ -10,7 +10,7 @@ export const skillTypeDefs = gql`
   }
 
   type Mutation {
-    addSkill(name: String): Skill
-    removeSkill(name: String): Skill
+    createSkill(name: String): Skill
+    deleteSkill(name: String): Skill
   }
 `;

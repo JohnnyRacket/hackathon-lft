@@ -5,14 +5,14 @@ export const skillResolvers = {
     skills: async (): Promise<Skill[]> => await Skill.query(),
   },
   Mutation: {
-    addSkill: async (_parent, { name } : {name: string}, _context): Promise<Skill> => {
+    createSkill: async (_parent, { name }: { name: string }, _context): Promise<Skill> => {
       const res = await Skill.query().insert({
-          name,
+        name,
       });
       return res;
     },
-    removeSkill: async (_parent, { name } : {name: string}, _context): Promise<number> => {
-      return await Skill.query().delete().where('name', name);
+    deleteSkill: async (_parent, { name }: { name: string }, _context): Promise<number> => {
+      return await Skill.query().delete().where("name", name);
     },
   },
 };

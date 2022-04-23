@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server-express';
+import { gql } from "apollo-server-express";
 
 export const roleTypeDefs = gql`
   type Role {
@@ -10,7 +10,7 @@ export const roleTypeDefs = gql`
   }
 
   type Mutation {
-    addRole(name: String): Role
-    removeRole(name: String): Role
+    createRole(name: String): Role
+    deleteRole(name: String): Role
   }
 `;

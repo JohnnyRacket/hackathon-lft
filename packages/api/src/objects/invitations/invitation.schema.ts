@@ -26,6 +26,6 @@ export const invitationTypeDefs = gql`
 
   type Mutation {
     createInvitation(invitationInput: InvitationInput): Invitation
-    removeInvitation(id: String): Invitation
+    deleteInvitation(id: String): Invitation
   }
 `;

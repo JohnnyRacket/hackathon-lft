@@ -1,4 +1,5 @@
 import { Model, Modifiers } from "objection";
+import Invitation from "../invitations/Invitation.model";
 import Role from "../roles/role.model";
 import Skill from "../skills/skill.model";
 
@@ -11,6 +12,8 @@ export default class User extends Model {
   createdAt: string;
   updatedAt: string;
 
+  invitations?: Invitation[];
+  sentInvitations?: Invitation[];
   role?: Role;
   skills?: Skill[];
 
@@ -87,6 +90,22 @@ export default class User extends Model {
           to: "userSkills.skillName",
         },
         to: "skills.name",
+      },
+    },
+    invitations: {
+      relation: Model.BelongsToOneRelation,
+      modelClass: Invitation,
+      join: {
+        from: "users.id",
+        to: "invitations.receiverId",
+      },
+    },
+    sentInvitations: {
+      relation: Model.BelongsToOneRelation,
+      modelClass: Invitation,
+      join: {
+        from: "users.id",
+        to: "invitations.senderId",
       },
     },
   });
