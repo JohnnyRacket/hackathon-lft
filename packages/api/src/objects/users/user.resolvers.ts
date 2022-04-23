@@ -31,10 +31,12 @@ export const userResolvers = {
           lastName,
           email,
           team,
-          role: {
-            name: role,
-          },
-          skills: skills.map((skill) => ({ name: skill })),
+          role: role
+            ? {
+                name: role,
+              }
+            : undefined,
+          skills: skills?.map((skill) => ({ name: skill })),
         },
         {
           relate: ["role", "skills"],
@@ -55,10 +57,12 @@ export const userResolvers = {
           lastName,
           email,
           team,
-          role: {
-            name: role,
-          },
-          skills: skills.map((skill) => ({ name: skill })),
+          role: role
+            ? {
+                name: role,
+              }
+            : undefined,
+          skills: skills?.map((skill) => ({ name: skill })),
         },
         {
           relate: ["role", "skills"],
