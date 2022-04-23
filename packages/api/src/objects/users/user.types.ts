@@ -1,5 +1,6 @@
 export interface UserInput {
-    name: string;
+  firstName: string
+  lastName: string
     email: string;
     role: string;
     team: string;

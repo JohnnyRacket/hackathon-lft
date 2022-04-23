@@ -15,23 +15,32 @@
   ],
   "scripts": {
     "build": "npx tsc",
+    "cjs-knex": "cross-env TS_NODE_COMPILER_OPTIONS={\\\"module\\\":\\\"commonjs\\\"} knex --knexfile=./knexfile.ts",
     "generate": "npx prisma generate",
-    "serve": "npx tsc && node dist/server.js",
+    "migrate": "npm run cjs-knex --esm migrate:latest",
+    "create-migration": "npm run cjs-knex --esm migrate:make migration -x ts",
+    "serve": "npx tsc && node dist/src/server.js",
     "test": "echo \"Error: run tests from root\" && exit 1",
     "lint": "npx eslint . --fix"
   },
   "dependencies": {
     "@graphql-tools/merge": "^8.2.7",
-    "@prisma/client": "^3.12.0",
+    "@vscode/sqlite3": "^5.0.8",
     "apollo-server-core": "^3.6.7",
     "apollo-server-express": "^3.6.7",
     "express": "^4.17.3",
     "graphql": "^16.3.0",
-    "prisma": "^3.12.0"
+    "knex": "^1.0.7",
+    "objection": "^3.0.1",
+    "pg": "^8.7.3",
+    "sqlite3": "^5.0.3"
   },
   "devDependencies": {
+    "@types/node": "^17.0.25",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.13.0",
-    "eslint-config-airbnb": "^19.0.4"
+    "eslint-config-airbnb": "^19.0.4",
+    "ts-node": "^10.7.0"
   }
 }

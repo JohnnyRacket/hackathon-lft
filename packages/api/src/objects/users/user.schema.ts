@@ -1,11 +1,12 @@
-import { gql } from 'apollo-server-express';
+import { gql } from "apollo-server-express";
 
 export const userTypeDefs = gql`
   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 
   type User {
     id: String
-    name: String
+    firstName: String
+    lastName: String
     email: String
     role: Role
     skills: [Skill]
@@ -17,7 +18,8 @@ export const userTypeDefs = gql`
   }
 
   input UserInput {
-    name: String
+    firstName: String
+    lastName: String
     email: String
     role: String
     team: String
@@ -30,9 +32,8 @@ export const userTypeDefs = gql`
   }
 
   type Mutation {
-    addUser(userInput: UserInput): User
-    editUser(id: String, userInput: UserInput): User
-    removeUser(id: String): Boolean
-    inviteUser(invitationInput: InvitationInput): Invitation
+    createUser(userInput: UserInput): User
+    updateUser(id: String, userInput: UserInput): User
+    deleteUser(id: String): Boolean
   }
 `;
