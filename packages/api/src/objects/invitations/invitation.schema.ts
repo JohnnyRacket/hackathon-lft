@@ -1,7 +1,6 @@
-import { gql } from 'apollo-server-express';
+import { gql } from "apollo-server-express";
 
 export const invitationTypeDefs = gql`
-
   type Invitation {
     id: String
     sendingUser: User
@@ -26,6 +25,7 @@ export const invitationTypeDefs = gql`
   }
 
   type Mutation {
+    createInvitation(invitationInput: InvitationInput): Invitation
     removeInvitation(id: String): Invitation
   }
 `;

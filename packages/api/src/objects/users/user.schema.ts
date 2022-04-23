@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server-express';
+import { gql } from "apollo-server-express";
 
 export const userTypeDefs = gql`
   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
@@ -11,8 +11,8 @@ export const userTypeDefs = gql`
     role: Role
     skills: [Skill]
     team: String
-    #invitations: [Invitation]
-    #sentInvitations: [Invitation]
+    invitations: [Invitation]
+    sentInvitations: [Invitation]
     createdAt: String
     updatedAt: String
   }
@@ -35,6 +35,5 @@ export const userTypeDefs = gql`
     addUser(userInput: UserInput): User
     editUser(id: String, userInput: UserInput): User
     removeUser(id: String): Boolean
-   # inviteUser(invitationInput: InvitationInput): Invitation
   }
 `;
