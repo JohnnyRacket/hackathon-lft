@@ -15,10 +15,10 @@
   ],
   "scripts": {
     "build": "npx tsc",
-    "cjs-knex": "TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' knex --knexfile=./knexfile.ts",
+    "cjs-knex": "cross-env TS_NODE_COMPILER_OPTIONS={\\\"module\\\":\\\"commonjs\\\"} knex --knexfile=./knexfile.ts",
     "generate": "npx prisma generate",
     "migrate": "npm run cjs-knex --esm migrate:latest",
-    "create-migration": "npx knex --esm migrate:make migration -x ts",
+    "create-migration": "npm run cjs-knex --esm migrate:make migration -x ts",
     "serve": "npx tsc && node dist/src/server.js",
     "test": "echo \"Error: run tests from root\" && exit 1",
     "lint": "npx eslint . --fix"
@@ -38,6 +38,7 @@
   "devDependencies": {
     "@types/node": "^17.0.25",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.13.0",
     "eslint-config-airbnb": "^19.0.4",
     "ts-node": "^10.7.0"
